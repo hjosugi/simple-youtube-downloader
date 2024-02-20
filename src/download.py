@@ -5,7 +5,7 @@ import streamlit as st
 
 
 @st.cache_data
-def dl(url, format):
+def download(url, format):
     options = {"nocheckcertificate": True}
     options["outtmpl"] = os.path.join("downloads", "%(title)s.%(ext)s")
     if format == "mp3":

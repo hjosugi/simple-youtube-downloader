@@ -1,7 +1,8 @@
 import streamlit as st
 import os
-from dl import dl
-from delete import delayed_delete
+from download import download
+from delete import delete
+from util import remove_list_parameter
 
 st.title("Youtube Downloader")
 url = st.text_input("URL", "")
@@ -9,7 +10,9 @@ file_type = st.radio("FILE", ["mp4", "mp3"])
 
 if st.button("Download"):
     if url != "":
-        file_path = dl(url, file_type)
+        delete()
+        url = remove_list_parameter(url)
+        file_path = download(url, file_type)
         st.success(f"Success!")
         file = open(file_path, "rb")
         try:
@@ -20,8 +23,6 @@ if st.button("Download"):
                 mime="video/mp4" if file_type == "mp4" else "audio/mp3",
             )
         finally:
-            delayed_delete(file_path)
             st.cache_data.clear()
-            file.close()
     else:
         st.error("Please enter a URL")

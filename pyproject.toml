@@ -2,9 +2,7 @@
 name = "ydl-streamlit"
 version = "0.1.0"
 description = "Add your description here"
-authors = [
-    { name = "azoom-h-sugi", email = "h.suginoo@azoom.jp" }
-]
+authors = [{ name = "hjosugi", email = "h.jo.sugi@azoom.jp" }]
 dependencies = [
     "youtube-dl-nightly>=2024.2.19",
     "ffmpeg-python>=0.2.0",
@@ -28,4 +26,4 @@ dev-dependencies = []
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/ydl_streamlit"]
+packages = ["src"]
