@@ -7,7 +7,7 @@ import streamlit as st
 @st.cache_data
 def download(url, format):
     options = {"nocheckcertificate": True}
-    options["outtmpl"] = os.path.join("downloads", "%(title)s.%(ext)s")
+    options["outtmpl"] = os.path.join("targetDir", "%(title)s.%(ext)s")
     if format == "mp3":
         options["format"] = "bestaudio[ext=m4a]/bestaudio"
         with youtube_dl.YoutubeDL(options) as ydl:

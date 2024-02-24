@@ -2,7 +2,7 @@ import os
 
 
 def delete():
-    directory_path = "downloads/"
+    directory_path = "targetDir/"
     for filename in os.listdir(directory_path):
         file_path = os.path.join(directory_path, filename)
         print(file_path)
